@@ -1,6 +1,8 @@
 import json
 import caculations
 import requests
+
+
 def get_location(targets):
     #lucation = requests.get("https://api.openweathermap.org/data/2.5/forecast?q=yemen&APPID=d6a9a801ea56fc97a66d57e476d39bfa")
     for target in targets:
@@ -9,3 +11,22 @@ def get_location(targets):
         let = list[0]["lat"]
         lon = list[0]["lon"]
         target.distence = caculations.haversine_distance(let, lon)
+    return
+
+
+def get_weather(targets):
+    for target in targets:
+        weather = requests.get(
+            f"https://api.openweathermap.org/data/2.5/forecast?q={target.city}&APPID=d6a9a801ea56fc97a66d57e476d39bfa")
+        weather_data = weather.json()
+
+        midnight_weather = []
+        for weather_data in weather_data['list']:
+            if "00:00:00" in weather_data['dt_txt']:
+                midnight_weather.append(weather_data)
+                condition= {'condition': weather_data['weather'][0]['main']}
+                target.condition = caculations.weather_score(condition)
+                break
+
+    # attack_day = list(filter(lambda day: weather_data["list"][day]["dt_txt"] == "2024-09-12 09:00:00",
+    #                          range(len(weather_data["list"]))))

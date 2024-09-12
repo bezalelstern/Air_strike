@@ -6,4 +6,5 @@ if __name__ == '__main__':
     aircraft =  read_files.read_aircraft()
     targets =  read_files.read_targets()
 
-    api_zone.get_location(targets)
+    #api_zone.get_location(targets)
+    #api_zone.get_weather(targets)
