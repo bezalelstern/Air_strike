@@ -25,7 +25,6 @@ def read_aircraft() -> list:
         )
         for aircraft_data in data['aircrafts']
     ]
-    print(aircraft_list)
     return aircraft_list
 
 def read_targets() -> list:
