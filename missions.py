@@ -3,24 +3,19 @@ from  itertools import groupby
 from classes.missions import Missions
 
 
-
-def priority_targets(targets):
-
-    sorted_targets = sorted(targets, key=lambda x: x.priority, reverse=True)
-    group_targets = []
-    for priority, group in groupby(sorted_targets, lambda x: x.priority):
-        list_targets = list(group)
-        group_targets.append(list_targets)
-
-
+def priority_targets(target):
+    return target.priority*2/10
 
 
 def assign_mission(targets, pilots, aircrafts):
+    missions = []
     for target in targets:
         conditision = 20
-        distance = 20
+        distance = 25
         pilot_skill = 25
         conditision *= target.condition
+        priority = 30
+        priority *= priority_targets(target)
         for aircraft in aircrafts:
             actual_rang = aircraft.fuel_capacity/2
             if actual_rang < target.distence:
@@ -34,4 +29,12 @@ def assign_mission(targets, pilots, aircrafts):
                 mission.weights["weather_conditions"] = conditision
                 mission.weights["distance"] = distance
                 mission.weights["pilot_skill"] = pilot_skill
+                missions.append(mission)
+    sorted = sorted_missions(missions)
+    return sorted
+
+
+def sorted_missions(missions):
+    sorted_missions = sorted(missions, key=lambda x: x.sum(), reverse=True)
+    return sorted_missions
 

@@ -1,3 +1,4 @@
+
 {
   "targets": [
     {
@@ -27,6 +28,38 @@
     {
       "City": "Cairo",
       "Priority": 3
+    },
+    {
+      "City": "Beirut",
+      "Priority": 3
+    },
+    {
+      "City": "Amman",
+      "Priority": 3
+    },
+    {
+      "City": "Tripoli",
+      "Priority": 2
+    },
+    {
+      "City": "Khartoum",
+      "Priority": 2
+    },
+    {
+      "City": "Mosul",
+      "Priority": 2
+    },
+    {
+      "City": "Fallujah",
+      "Priority": 1
+    },
+    {
+      "City": "Kandahar",
+      "Priority": 1
+    },
+    {
+      "City": "Marrakesh",
+      "Priority": 1
     }
   ]
 }

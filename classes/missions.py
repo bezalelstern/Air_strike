@@ -4,15 +4,14 @@ class Missions:
         self.aircraft = aircraft
         self.pilot = pilot
         self.weights  = {
-        "distance": 20,
-        "aircraft_type": 25,
+        "distance": 25,
         "pilot_skill": 25,
         "weather_conditions": 20,
-        "execution_time": 10
+        "priority": 30
     }
 
     def sum(self):
         sum = 0
         for key, value in self.weights.items():
             sum += value
-        return sum
+        return round(sum,2)

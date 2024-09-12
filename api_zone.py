@@ -30,7 +30,6 @@ def get_weather(targets):
                 midnight_weather.append(weather_data)
                 condition= {'condition': weather_data['weather'][0]['main']}
                 target.condition = caculations.weather_score(condition)
+                target.weather = weather_data['weather'][0]['main']
                 break
 
-    # attack_day = list(filter(lambda day: weather_data["list"][day]["dt_txt"] == "2024-09-12 09:00:00",
-    #                          range(len(weather_data["list"]))))
