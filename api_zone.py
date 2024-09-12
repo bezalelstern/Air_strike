@@ -5,9 +5,10 @@ import requests
 
 def get_location(targets):
     """
-
-    :param targets:
+     get location and caculate distance
+    :param list of targets:
     :return: noun
+
     """
     for target in targets:
         lucation2 = requests.get(f"http://api.openweathermap.org/geo/1.0/direct?q={target.city}&APPID=d6a9a801ea56fc97a66d57e476d39bfa")
@@ -19,6 +20,11 @@ def get_location(targets):
 
 
 def get_weather(targets):
+    """
+    get weather data from openweathermap.org & caculate condition score
+    :param targets:
+    :return:
+    """
     for target in targets:
         weather = requests.get(
             f"https://api.openweathermap.org/data/2.5/forecast?q={target.city}&APPID=d6a9a801ea56fc97a66d57e476d39bfa")

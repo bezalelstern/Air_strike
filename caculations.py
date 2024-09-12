@@ -1,7 +1,14 @@
 import math
 
 
-def haversine_distance(lat1, lon1):
+def haversine_distance(lat1, lon1) -> float:
+    """
+
+    :param lat1:
+    :param lon1:
+    :return: distance
+    """
+
     BASE_LON =  31.83803973995509
     BASE_LAT = 34.81000272428146
     r = 6371.0 # Radius of the Earth in kilometers
@@ -20,7 +27,12 @@ def haversine_distance(lat1, lon1):
     distance = r * c
     return distance
 
-def weather_score(weather):
+def weather_score(weather) -> float:
+    """
+
+    :param dict weather:
+    :return: score
+    """
     if weather["condition"] == "Clear":
         return 1.0
     elif weather["condition"] == "Clouds":

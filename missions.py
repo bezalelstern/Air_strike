@@ -1,13 +1,14 @@
 from  itertools import groupby
-
 from classes.missions import Missions
 
+def assign_mission(targets, pilots, aircrafts) -> list :
+    """
 
-def priority_targets(target):
-    return target.priority*2/10
-
-
-def assign_mission(targets, pilots, aircrafts):
+    :param targets:
+    :param pilots:
+    :param aircrafts:
+    :return: a sorted list of missions assignments
+    """
     missions = []
     for target in targets:
         conditision = 20
@@ -33,8 +34,15 @@ def assign_mission(targets, pilots, aircrafts):
     sorted = sorted_missions(missions)
     return sorted
 
+def priority_targets(target):
+    return target.priority*2/10
 
-def sorted_missions(missions):
+def sorted_missions(missions) -> list:
+    """
+
+    :param missions:
+    :return: sorted missions
+    """
     sorted_missions = sorted(missions, key=lambda x: x.sum(), reverse=True)
     return sorted_missions
 
